@@ -21,7 +21,8 @@ for(const z of [-87,-61,-31,37,64,91])roadX(z,z===37?12:8);for(const x of [-88,-
 const colliders=[];function addCollider(x,z,w,d,height=30){colliders.push({minX:x-w/2,maxX:x+w/2,minY:-.5,maxY:height,minZ:z-d/2,maxZ:z+d/2})}function canOccupy(x,z){const r=.48;return !colliders.some(b=>x+r>b.minX&&x-r<b.maxX&&z+r>b.minZ&&z-r<b.maxZ)}
 // Campus grounds and recognizable red-roofed school blocks within the four surrounding roads.
 box(scene,0,.04,2,54,.25,62,mat(0xb7ae91),{cast:false});box(scene,0,.18,2,48,.08,56,mat(0x7a916f),{cast:false});
-for(const [x,z,w,d,h] of [[-11,-10,15,18,11],[8,-12,16,20,14],[-10,11,18,17,9],[10,12,14,15,8]]){addCollider(x,z,w,d,h+.8);box(scene,x,h/2,z,w,h,d,mat(0xd8d0bb));box(scene,x,h+.18,z,w+.35,.35,d+.35,tile);for(let f=0;f<Math.floor(h/3);f++)for(let q=-1;q<=1;q++)box(scene,x+q*w*.24,1.6+f*2.7,z+d/2+.08,1.1,.9,.1,windowMat);}
+box(scene,-13.5,.225,3,22,.035,15,mat(0x6d8862),{cast:false});const track=new THREE.Mesh(new THREE.RingGeometry(9.1,10,64),mat(0xb96f5b));track.rotation.x=-Math.PI/2;track.scale.set(1.05,.72,1);track.position.set(-13.5,.255,3);scene.add(track);for(const r of [9.25,9.48,9.71]){const lane=new THREE.Mesh(new THREE.RingGeometry(r-.035,r+.035,64),mat(0xf0dfbd));lane.rotation.x=-Math.PI/2;lane.scale.set(1.05,.72,1);lane.position.set(-13.5,.275,3);scene.add(lane)}
+for(const [x,z,w,d,h] of [[-12,-15,15,16,11],[8,-16,16,18,14],[10,4,18,15,9],[11,21,14,15,8]]){addCollider(x,z,w,d,h+.8);box(scene,x,h/2,z,w,h,d,mat(0xd8d0bb));box(scene,x,h+.18,z,w+.35,.35,d+.35,tile);for(let f=0;f<Math.floor(h/3);f++)for(let q=-1;q<=1;q++)box(scene,x+q*w*.24,1.6+f*2.7,z+d/2+.08,1.1,.9,.1,windowMat);}
 box(scene,0,.22,-25,50,.42,1.2,mat(0xd1c9b4));box(scene,0,.48,-25,50,.12,1.4,mat(0xe2d7bd));
 // Court, tree shade and school entrance opening onto 健康路.
 box(scene,-16,.15,20,12,.16,16,mat(0xb96f5b),{cast:false});for(const x of [-20,-12])for(const z of [15,25])box(scene,x,.26,z,.12,.05,10,mat(0xf0dfbd),{cast:false});
